@@ -36,7 +36,7 @@ function generatePassword() {
     pwChars = pwChars.concat(lowerCase);
     pw += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
   }
-  console.log(pw)
+  
 
   //If user confirms use of capital letters in password, caps are added to pwChars, and a random capital letter is added to the password. This ensures that at least one character from this category will be included in the password
   var useCaps = confirm("Include Capital Letters?");
@@ -62,6 +62,11 @@ function generatePassword() {
   //randomly selects characters that fit the user's parameters and adds them to the password, until the preferred length is reached.
   for (let i = pw.length-1; i < pwLength-1; i++) {
     pw += pwChars.charAt(Math.floor(Math.random() * pwChars.length));
+  }
+
+  if (pw == "") {
+    isValidInput == false
+    alert("Oops! Looks like you didnt select any character types. Click the botton again and be sure to select at least one character type.")
   }
 
   return pw;
