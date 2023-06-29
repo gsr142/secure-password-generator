@@ -15,7 +15,7 @@ function generatePassword() {
   var pwLength = prompt("Length (8-128 characters)"); 
   isValidInput = false;
 
-  //While loop checks if the user entered something and clicked OK
+  //While loop checks if the user entered a valid password length and clicked OK
   while (isValidInput === false) {
     //if/else checks that the user entered a number from 8-128, and prompts the user to re-enter the password length if they did not meet these requirements
     if (Number.isInteger(parseFloat(pwLength)) && pwLength > 7 && pwLength < 129) {
