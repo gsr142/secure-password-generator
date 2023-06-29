@@ -44,26 +44,26 @@ function generatePassword() {
     pwChars = pwChars.concat(upperCase);
     pw += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
   }
-  console.log(pw)
+  
   //If user confirms use of numbers in password, numbers are added to pwChars, and a random number is added to the password. This ensures that at least one character from this category will be included in the password
   var useNums = confirm("Include Numbers?");
   if (useNums == true) {
     pwChars = pwChars.concat(numbers);
-    pw += numbers.charAt(Math.floor(Math.random() * numbers.length))
+    pw += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
-  console.log(pw)
+  
   //If user confirms use of symbols in password, symbols are added to pwChars, and a random symbol is added to the password. This ensures that at least one character from this category will be included in the password
   var useSymbols = confirm("Use Symbols?");
   if (useSymbols == true) {
-    pwChars = pwChars.concat(symbols)
-    pw += symbols.charAt(Math.floor(Math.random() * symbols.length))
+    pwChars = pwChars.concat(symbols);
+    pw += symbols.charAt(Math.floor(Math.random() * symbols.length));
   }
   
   //randomly selects characters that fit the user's parameters and adds them to the password, until the preferred length is reached.
   for (let i = pw.length-1; i < pwLength-1; i++) {
     pw += pwChars.charAt(Math.floor(Math.random() * pwChars.length));
   }
-  
+
   return pw;
 }
 
