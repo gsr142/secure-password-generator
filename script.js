@@ -78,7 +78,7 @@ function generatePassword() {
     charTypes += "Special Characters";
   }
   
-  //lines 83-88 confirm that the user selected at least one character type, prompt them to select again if they have not made a valid selection. If their selection is valid, the alert box will confirm their selections before the password is generated.
+  //next section will confirm that the user selected at least one character type, prompt them to select again if they have not made a valid selection. If their selection is valid, the alert box will confirm their selections before the password is generated.
   if (pw == "") {
     isValidInput == false;
     alert("Oops! Looks like you didnt select any character types. Click the button again and be sure to select at least one character type.");
