@@ -9,7 +9,7 @@ function generatePassword() {
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = lowerCase.toUpperCase();
   var numbers = "0123456789";
-  var symbols = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+  var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
   //Gives user a prompt to enter character length
   var pwLength = prompt("Length (8-128 characters)"); 
