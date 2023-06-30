@@ -5,6 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   //declare variables inside generate password so that pwChars resets to default with out having to refresh web page
   var pw = "";
+  var pwLength = pw.length;
   var pwChars = "";
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = lowerCase.toUpperCase();
@@ -37,9 +38,8 @@ function generatePassword() {
     pw += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
   }
   
-
   //If user confirms use of capital letters in password, caps are added to pwChars, and a random capital letter is added to the password. This ensures that at least one character from this category will be included in the password
-  var useCaps = confirm("Include Capital Letters?");
+  var useCaps = confirm("Include Uppercase Letters?");
   if (useCaps == true) {
     pwChars = pwChars.concat(upperCase);
     pw += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
@@ -51,22 +51,39 @@ function generatePassword() {
     pwChars = pwChars.concat(numbers);
     pw += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
-  
+
   //If user confirms use of symbols in password, symbols are added to pwChars, and a random symbol is added to the password. This ensures that at least one character from this category will be included in the password
-  var useSymbols = confirm("Use Symbols?");
+  var useSymbols = confirm("Include Special Characters?");
   if (useSymbols == true) {
     pwChars = pwChars.concat(symbols);
     pw += symbols.charAt(Math.floor(Math.random() * symbols.length));
   }
-  
+ 
   //randomly selects characters that fit the user's parameters and adds them to the password, until the preferred length is reached.
   for (let i = pw.length-1; i < pwLength-1; i++) {
     pw += pwChars.charAt(Math.floor(Math.random() * pwChars.length));
   }
 
+  charTypes = ""
+  if (useLower == true){
+    charTypes += "Lowercase letters\n";
+  }
+  if (useCaps == true){
+    charTypes += "Uppercase letters\n";
+  }
+  if (useNums == true){
+    charTypes += "Numbers\n";
+  }
+  if (useSymbols == true) {
+    charTypes += "Special Characters";
+  }
+  
+  //lines 83-88 confirm that the user selected at least one character type, prompt them to select again if they have not made a valid selection. If their selection is valid, the alert box will confirm their selections before the password is generated.
   if (pw == "") {
-    isValidInput == false
-    alert("Oops! Looks like you didnt select any character types. Click the botton again and be sure to select at least one character type.")
+    isValidInput == false;
+    alert("Oops! Looks like you didnt select any character types. Click the button again and be sure to select at least one character type.");
+  } else {
+    alert("Your password will be " + pwLength.toString() + " characters long, and contain the following character types: " + charTypes);
   }
 
   return pw;
